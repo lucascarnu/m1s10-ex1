@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen del Flujo de un Request HTTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+            background-color: #282828;
+            color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .highlight {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Resumen del Flujo de un Request HTTP</h1>
+    <p>Este es un resumen del flujo de un request HTTP a través de las clases e interfaces proporcionadas en la aplicación:</p>
+    <ol>
+        <li><strong>Request HTTP:</strong> Se envía un request HTTP al endpoint <code>/livros</code>.</li>
+        <li><strong>LivroController:</strong> El controlador <code>LivroController</code> maneja el request en el endpoint <code>/livros</code>.</li>
+        <li><strong><span class="highlight">@GetMapping</span>:</strong> El método <code>get()</code>, anotado con <code>@GetMapping</code>, responde a peticiones HTTP GET en <code>/livros</code>.</li>
+        <li><strong>service.buscarTodos():</strong> Dentro del método <code>get()</code>, se llama al método <code>buscarTodos()</code> del servicio <code>LivroService</code>, el cual es implementado por <code>LivroServiceImpl</code>.</li>
+        <li><strong>LivroServiceImpl:</strong> El servicio <code>LivroService</code>, que extiende <code>GenericService</code>, se comunica con <code>LivroRepository</code> para obtener todos los libros.</li>
+        <li><strong>LivroRepository:</strong> El repositorio <code>LivroRepository</code>, que extiende <code>JpaRepository</code>, proporciona métodos para interactuar con la base de datos. En este caso, se utiliza <code>findAll()</code> para obtener todos los libros almacenados.</li>
+        <li><strong>ResponseEntity:</strong> La lista de libros obtenida se envía de vuelta como el cuerpo de la respuesta HTTP, con un código de estado 200 (OK), utilizando ResponseEntity.ok().
+
+            ```
